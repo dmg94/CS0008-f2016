@@ -29,6 +29,19 @@ elif not(system == M):
     mdistance = distance * .621371
     mpg = gas / distance
     liter_per_hundred_km = 100 * mgas / mdistance
+# Now I made another if to compare liters/100km /
+# to to consumption table to give the fuel rating.
+if liter_per_hundred_km <= 8:
+    fuel = "Excellent"
+elif liter_per_hundred_km <= 10:
+    fuel = "Good"
+elif liter_per_hundred_km <= 15:
+    fuel = "Average"
+elif liter_per_hundred_km <= 20:
+    fuel = "Poor"
+else:
+    fuel = "Extremely poor"
+
 
 
 
