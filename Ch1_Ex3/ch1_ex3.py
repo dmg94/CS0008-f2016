@@ -6,7 +6,7 @@
 # TA: Alex Rowden (alex.rowden@pitt.edu
 # Note: This is Chapter 2, exercise 3, NOT chapter 1.
 # This program asks the user to enter a value /
-# of sqaure meters of land and then /
+# of square meters of land and then /
 # calculates the numbers of acres.
 # First, I am making an assignment statement of land to user input
 land = float(input('Please enter the total square meters of land you have.'))

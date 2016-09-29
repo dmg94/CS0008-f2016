@@ -6,17 +6,29 @@
 # TA: Alex Rowden (alex.rowden@pitt.edu
 # This program takes user input to convert /
 # distance and amount of gas used /
-# and calculates results in US and Mwtric systems.
+# and calculates results in US and Metric systems.
 # Fuel consumption is also rated by how much gas /
 # is used efficiently in liter/100km.
 # First I am using user input to figure what system /
-# is being used
+# is being used.
 system = input('What system are you using? Type USC for US and M for Metric')
 # Next I am using an If statement to use user input for /
-# the distance and amount of gas used.
+# the distance and amount of gas used /
+# as well as making the conversion equations.
 if system == M:
     gas = float(input( 'Enter the amount of gas used in liters.'))
     distance = float(input( 'Enter the distance traveled in kilometers'))
-elif system != M:
+    usgas = gas * 3.78541
+    usdistance = distance * 1.60934
+    mpg = usdistance / usgas
+    liter_per_hundred_km = 100 * gas / distance
+elif not(system == M):
     gas = float(input( 'Enter the amount of gas in gallons.'))
     distance = float(input( 'Enter the distance traveled in miles.'))
+    mgas = gas * .264172
+    mdistance = distance * .621371
+    mpg = gas / distance
+    liter_per_hundred_km = 100 * mgas / mdistance
+
+
+
