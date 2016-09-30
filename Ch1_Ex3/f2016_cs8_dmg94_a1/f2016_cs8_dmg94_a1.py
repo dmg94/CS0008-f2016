@@ -11,20 +11,20 @@
 # is used efficiently in liter/100km.
 # First I am using user input to figure what system /
 # is being used.
-system = input('What system are you using? Type USC for US and M for Metric')
+system = str(input('What system are you using? Type USC for US or M for Metric'))
 # Next I am using an If statement to use user input for /
 # the distance and amount of gas used /
 # as well as making the conversion equations.
-if system == 'M':
-    liters = float(input( 'Enter the amount of gas used in liters.'))
-    km = float(input( 'Enter the distance traveled in kilometers'))
+if system == str(' M'):
+    liters = float(input('Enter the amount of gas used in liters.'))
+    km = float(input('Enter the distance traveled in kilometers'))
     gallons = liters * 3.78541
     miles = km * 1.60934
     mpg = miles / gallons
     liter_per_hundred_km = 100 * liters / km
-else:
-    gallons = float(input( 'Enter the amount of gas in gallons.'))
-    miles = float(input( 'Enter the distance traveled in miles.'))
+elif system != str(' M'):
+    gallons = float(input('Enter the amount of gas in gallons.'))
+    miles = float(input('Enter the distance traveled in miles.'))
     liters = gallons * .264172
     km = miles * .621371
     mpg = gallons / miles
@@ -43,10 +43,10 @@ else:
     fuel = "Extremely poor"
 # Lastly I am making the table for the user /
 # to see when they use this program.
-print("                                USC/tMetric")
-print("Distance___________:", format(miles, '20.3f'),print('miles', format(km, '20.3f'),'Km')
-print("Gas___________:", format(gallons, '20.3f'), print('gallons', format(liters, '20.3f'), 'Liters')
-print("Consumption________:", format(mpg, '20.3f'),print('mpg', format(liter_per_hundred_km, '20.3f'), 'l/100km')
+print("                     USC              Metric")
+print("Distance:", format(miles, '12.3f'),'miles', format(km, '12.3f'),'Km')
+print("Gas:", format(gallons, '3.3f'),'gallons', format(liters, '7.3f'), 'Liters')
+print("Consumption:", format(mpg, '28.3f'),'mpg', format(liter_per_hundred_km, '26.3f'), 'l/100km')
 
 print('Gas Consumption Rating :', fuel)
 
