@@ -43,10 +43,10 @@ else:
     fuel = "Extremely poor"
 # Lastly I am making the table for the user /
 # to see when they use this program.
-print("                     USC              Metric")
-print("Distance:", format(miles, '12.3f'),'miles', format(km, '12.3f'),'Km')
-print("Gas:", format(gallons, '3.3f'),'gallons', format(liters, '7.3f'), 'Liters')
-print("Consumption:", format(mpg, '28.3f'),'mpg', format(liter_per_hundred_km, '26.3f'), 'l/100km')
+print("                           USC              Metric")
+print("Distance___________:", format(miles, '12.3f'),'miles', format(km, '12.3f'),'Km')
+print("Gas________________:", format(gallons, '12.3f'),'gallons', format(liters, '9.3f'), 'Liters')
+print("Consumption________:", format(mpg, '12.3f'),'mpg', format(liter_per_hundred_km, '12.3f'), 'l/100km')
 
 print('Gas Consumption Rating :', fuel)
 

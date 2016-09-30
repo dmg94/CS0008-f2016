@@ -4,4 +4,17 @@ Assignment 1 for CS0008.
 This program takes user input to get the distance
 and gas that he/she traveled in a car (in metric or US systems)
 and then takes that information to provide them with a table of
-how much gas and distance they went
+how much gas was used, distance traveled, and how much fuel was consumed
+into a nice chart.
+First I used the float and input function and assigned the variable 'system' to it.
+Then I used an If-else decision structure to ask for the units depending on which 'system' was chosen.
+Afterwards I made the equations for the computer to solve.
+Next I used the chart to make another If decision structure to assign the
+'fuel' variable for the gas consumption rating.
+Finally I used multiple print and format functions to make the chart.
+Formatting was the most difficult part.
+Also, if you want to use the Metric, press the space bar first before typing 'M'.
+Lastly, I hope you enjoy the program.
+
+Enjoy!
+Danielle Grentz

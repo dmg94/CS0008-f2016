@@ -1,0 +1,24 @@
+# This shows the Metric units.
+C:\Users\Danielle\AppData\Local\Programs\Python\Python35\python.exe C:/Users/Danielle/PycharmProjects/CS0008-f2016/Ch1_Ex3/f2016_cs8_dmg94_a1/f2016_cs8_dmg94_a1.py
+What system are you using? Type USC for US or M for Metric M
+Enter the amount of gas used in liters. 5434
+Enter the distance traveled in kilometers 53267
+                           USC              Metric
+Distance___________:    85724.714 miles    53267.000 Km
+Gas________________:    20569.918 gallons  5434.000 Liters
+Consumption________:        4.167 mpg       10.201 l/100km
+Gas Consumption Rating : Average
+
+Process finished with exit code 0
+# This is for seeing the US units
+C:\Users\Danielle\AppData\Local\Programs\Python\Python35\python.exe C:/Users/Danielle/PycharmProjects/CS0008-f2016/Ch1_Ex3/f2016_cs8_dmg94_a1/f2016_cs8_dmg94_a1.py
+What system are you using? Type USC for US or M for Metric US
+Enter the amount of gas in gallons. 45
+Enter the distance traveled in miles. 355
+                           USC              Metric
+Distance___________:      355.000 miles      220.587 Km
+Gas________________:       45.000 gallons    11.888 Liters
+Consumption________:        0.127 mpg        5.389 l/100km
+Gas Consumption Rating : Excellent
+
+Process finished with exit code 0
