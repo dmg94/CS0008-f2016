@@ -1,0 +1,7 @@
+Hello!
+On September 29th, 2016, I created this program called
+Assignment 1 for CS0008.
+This program takes user input to get the distance
+and gas that he/she traveled in a car (in metric or US systems)
+and then takes that information to provide them with a table of
+how much gas and distance they went
