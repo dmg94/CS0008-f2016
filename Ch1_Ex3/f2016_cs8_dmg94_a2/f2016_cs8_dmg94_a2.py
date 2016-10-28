@@ -29,7 +29,7 @@ def processFile(fh)
         ptotal_dist += distance
     printkv('Partial total lines', ptotal_line)
     printkv('Partial total distance', ptotal_dist)
-End program
+
 
 
 
