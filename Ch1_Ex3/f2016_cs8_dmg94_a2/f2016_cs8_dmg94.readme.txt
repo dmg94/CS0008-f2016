@@ -1,0 +1,20 @@
+Hello!
+This program takes files from the user and provides them with a running total of
+the distance ran by all of the participants in the file as well as how many lines (people) there
+are in the file as the output by using an indefinite loop until the user puts in 'q' 'quit' or an empty
+string at the end.
+The program produces a table following this format:
+File to be read: file_1.csv
+Partial Total # of lines  : x1
+Partial distance run      : y1
+File to be read: file_2.csv
+Partial Total # of lines  : x2
+Partial distance run      : y2
+     File to be read: quit
+Totals
+Total # of lines          : x1 + x2
+Total distance run        : y1 + y2
+
+Enjoy!
+
+Danielle Grentz
