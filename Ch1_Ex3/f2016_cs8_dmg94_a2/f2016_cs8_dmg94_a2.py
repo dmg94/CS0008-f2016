@@ -10,25 +10,43 @@
 # string at the end.
 ptotal_line = 0
 ptotal_dist = 0
-def processFile(fh)
+def processFile(fh):
 # fh is the variable that is the file handler/object.
     fh = input('Please enter the path of the first file.' )
     file_object = open ( fh, 'r')
-# I assigned file_object to be the variable that will work with the file
+
+
     while fh and fh != 'quit' and fh != 'q'
-        ptotal_dist, ptotal_line = process file(fh)
-        Real_total_dist = 0
-        Real_total_dist += ptotal_dist
-        Real_total_line = 0
-        Real_total_line += ptotal_line
-    for line in file_object:
-        ptotal_line += 1
-        line = line.rstrip('/n')
-        temporary = line.split(',')
-        distance = float(temporary[1])
-        ptotal_dist += distance
+       for line in file_object:
+            ptotal_line += 1
+            line = line.rstrip('/n')
+            temporary = line.split(',')
+            distance = float(temporary[1])
+            ptotal_dist += distance
+            Real_total_dist += ptotal_dist
+            Real_total_line += ptotal_line
+            total_lines += ptotal_line
+            total_dist += ptotal_dist
+    print('File to be read:', file_object)
+    print('Partial # of lines:', ptotal_line)
+    print('Partial distance run', ptotal_dist)
+    file = input('Enter the next file path or press q or quit to end.')
     printkv('Partial total lines', ptotal_line)
     printkv('Partial total distance', ptotal_dist)
+# I assigned file_object to be the variable that will work with the file
+    total_lines = 0
+    total_distance = 0
+
+
+def printkv(key,value,klen=0)
+    kl = max(len(key),klen))
+    if isinstance (value,str):
+        FS = '20s'
+    elif isinstance (value, float):
+        FS = '10.3f'
+    elif isinstance (value, int):
+        '10d'
+        print(format)
 
 
 
