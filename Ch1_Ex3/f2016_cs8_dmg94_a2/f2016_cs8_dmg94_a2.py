@@ -36,17 +36,16 @@ def processFile(fh):
 # I assigned file_object to be the variable that will work with the file
     total_lines = 0
     total_distance = 0
-
-
 def printkv(key,value,klen=0)
     kl = max(len(key),klen))
     if isinstance (value,str):
-        FS = '20s'
+        FS = '.30s'
     elif isinstance (value, float):
         FS = '10.3f'
     elif isinstance (value, int):
-        '10d'
-        print(format)
+        FS = '10d'
+    print(key, value(format(value, FS)))
+
 
 
 
