@@ -72,3 +72,4 @@ def process_file():
     printkv('Total number of lines', total_lines)
     printkv('Total distance run', total_distance)
     return fh
+# End program
