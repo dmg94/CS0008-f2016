@@ -14,12 +14,29 @@ partial_total_line = 0
 partial_total_dist = 0
 total_lines = 0
 total_distance = 0
+# This is where the printkv function is defined.
+def printkv(key,value,klen= 0):
+
+    kl = max(len(key),klen)
+    # An if structure is necessary here to tell what values get what formatting size in the output.
+    if isinstance (value,str):
+    # Strings get 30 characters that are truncated if over the limit.
+        FS = '.30s'
+    # Floats get 10 characters with 3 decimals spots.
+    elif isinstance (value, float):
+        FS = '10.3f'
+    # Integers get 10 spaces
+    elif isinstance (value, int):
+        FS = '10d'
+    # Here is how I tell Python to print the process_file(fh) function's table.
+    print(key(format(key, FS)), value(format(value, FS)))
 # Here I am defining the processFile function that I am using.
-def processFile(fh):
+
+def process_file(fh):
 # fh is the variable that is the file handler/object.
-    fh = input('Please provide the file name of the first file.' )
-# Here I am opening the file object provided by the user.
-    file_object = open( fh, 'r')
+    fh = input('Please enter the first file to be read.')
+# Here I am opening the file object provided by the user
+file_object = open( fh, 'r')
     while fh and fh != 'quit' and fh != 'q':
 # Here I am using both a while and for loop. The for loop will read the file
 # and the while loop is printing the necessary information.
@@ -32,7 +49,7 @@ def processFile(fh):
             distance = float(temporary[1])
             partial_total_dist += distance
             total_lines += partial_total_line
-            total_dist += partial_total_dist
+            total_distance += partial_total_dist
 # Here is where I use the while loop to print out the table for the user.
 # Printkv function is located below.
         printkv('File to be read', file_object)
@@ -40,27 +57,14 @@ def processFile(fh):
         printkv('Partial distance run', ptotal_dist)
 # Now I need to have to close the file before I get the next file (or quit).
        file_object.close()
-        fh = input('Please provide the next file name or enter "q" or "quit" to end.')
+       fh = input('Please provide the next file name or enter "q" or "quit" to end.')
 # Once the program leaves the while loop, the totals need printed.
     printkv('Total # of lines', total_line)
     printkv('Total distance run', total_dist )
-    return partial_total_line, partial_total_dist
-# This is where the printkv function is defined.
-  def printkv(key: object, value: object, klength: object = 0) -> object:
+        process_file(fh)
 
-    kl = max(len(key),klen)
-# An if structure is necessary here to tell what values get what formatting size in the output.
-    if isinstance (value,str):
-# Strings get 30 characters that are truncated if over the limit.
-        FS = '.30s'
-# Floats get 10 characters with 3 decimals spots.
-    elif isinstance (value, float):
-        FS = '10.3f'
-# Integers get 10 spaces
-    elif isinstance (value, int):
-        FS = '10d'
-# Here is how I tell Python to print the processFile(fh) function's table.
-    print(key(format(key, FS)), value(format(value, FS)))
+
+
 
 
 
