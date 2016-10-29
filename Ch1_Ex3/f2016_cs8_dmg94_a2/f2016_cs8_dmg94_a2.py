@@ -1,6 +1,6 @@
 # name: Danielle Grentz
 # email: dmg94@pitt.edu
-# date: October 27th, 2016
+# date: October 29th, 2016
 # class: CS0008-f2016
 # instructor: Max Novelli (man8@pitt.edu)
 # TA: Alex Rowden (alex.rowden@pitt.edu
@@ -44,15 +44,22 @@ def processFile(fh):
 # Once the program leaves the while loop, the totals need printed.
     printkv('Total # of lines', total_line)
     printkv('Total distance run', total_dist )
-# I assigned file_object to be the variable that will work with the file
-  def printkv(key,value,klen=0)
-    kl = max(len(key),klen))
+    return partial_total_line, partial_total_dist
+# This is where the printkv function is defined.
+  def printkv(key: object, value: object, klength: object = 0) -> object:
+
+    kl = max(len(key),klen)
+# An if structure is necessary here to tell what values get what formatting size in the output.
     if isinstance (value,str):
+# Strings get 30 characters that are truncated if over the limit.
         FS = '.30s'
+# Floats get 10 characters with 3 decimals spots.
     elif isinstance (value, float):
         FS = '10.3f'
+# Integers get 10 spaces
     elif isinstance (value, int):
         FS = '10d'
+# Here is how I tell Python to print the processFile(fh) function's table.
     print(key(format(key, FS)), value(format(value, FS)))
 
 
