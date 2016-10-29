@@ -17,22 +17,6 @@ partial_total_dist = 0
 fs = 0
 # This is where the printkv function is defined.
 
-
-def printkv(key, value):
-
-    # An if structure is necessary here to tell what values get what formatting size in the output.
-    global fs
-    if isinstance(value, str) or (key, str):
-        # Strings get 30 characters that are truncated if over the limit.
-        fs = '.30s'
-        # Floats get 10 characters with 3 decimals spots.
-    elif isinstance(value, float) or (key, str):
-        fs = '10.3f'
-        # Integers get 10 spaces
-    elif isinstance(value, int) or (key, str):
-        fs = '10d'
-        # Here is how I tell Python to print the process_file(fh) function's table.
-    print(key(format(key, fs)), ":", value(format(value, fs)))
 # Here I am defining the process_file function that I am using.
 
 
@@ -43,7 +27,7 @@ def process_file():
     global partial_total_line
     global partial_total_dist
     # fh is the variable that is the file handler/object.
-    fh = input('Please enter the first file to be read.')
+    fh = input("Please enter the first file to be read.")
     # Here I am opening the file object provided by the user
     file_object = open(fh, 'r')
     while file_object and file_object != 'quit' and file_object != 'q':
@@ -60,7 +44,7 @@ def process_file():
             total_lines += partial_total_line
             total_distance += partial_total_dist
             # Printkv function is located above
-            # Here I am printing the file information that was 
+            # Here I am printing the file information that was
             # computed in the for loop.
             printkv('File to be read', file_object)
             printkv('Partial # of lines', partial_total_line)
@@ -71,5 +55,22 @@ def process_file():
         # Once the program leaves the while loop, the totals need printed.
     printkv('Total number of lines', total_lines)
     printkv('Total distance run', total_distance)
-    return fh
+
+
+def printkv(key, value):
+
+    # An if structure is necessary here to tell what values get what formatting size in the output.
+    global fs
+    if isinstance(value, str) or (key, str):
+        # Strings get 30 characters that are truncated if over the limit.
+        fs = '.30s'
+        # Floats get 10 characters with 3 decimals spots.
+    elif isinstance(value, float) or (key, str):
+        fs = '10.3f'
+        # Integers get 10 spaces
+    elif isinstance(value, int) or (key, str):
+        fs = '10d'
+        # Here is how I tell Python to print the process_file(fh) function's table.
+    print(key(format(key, fs)), ":", value(format(value, fs)))
+
 # End program
