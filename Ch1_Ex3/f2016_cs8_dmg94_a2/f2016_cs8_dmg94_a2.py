@@ -17,25 +17,24 @@ partial_total_dist = 0
 # This is where the printkv function is defined.
 
 
-def printkv(key, value, klen=0):
+def printkv(key, value):
 
-    klen = max(len(key), klen)
     # An if structure is necessary here to tell what values get what formatting size in the output.
-    if isinstance (value,str):
+    if isinstance(value, str) or (key, str):
         # Strings get 30 characters that are truncated if over the limit.
         fs = '.30s'
         # Floats get 10 characters with 3 decimals spots.
-    elif isinstance (value, float):
+    elif isinstance(value, float) or (key, str):
         fs = '10.3f'
         # Integers get 10 spaces
-    elif isinstance (value, int):
+    elif isinstance(value, int) or (key, str):
         fs = '10d'
         # Here is how I tell Python to print the process_file(fh) function's table.
-    print(key(format(key, fs)), value(format(value, fs)))
+    print(key(format(key, fs)), ':', value(format(value, fs)))
 # Here I am defining the processFile function that I am using.
 
 
-def process_file(fh= input('Please enter the first file to be read.')):
+def process_file():
     # fh is the variable that is the file handler/object.
     global total_lines
     global total_distance
@@ -43,13 +42,13 @@ def process_file(fh= input('Please enter the first file to be read.')):
     global partial_total_dist
     fh = input('Please enter the first file to be read.')
     # Here I am opening the file object provided by the user
-    file_object = open( fh, 'r')
-    while fh and fh != 'quit' and fh != 'q':
+    file_object = open(fh, 'r')
+    while file_object and file_object != 'quit' and file_object != 'q':
         # Here I am using both a while and for loop. The for loop will read the file
         # and the while loop is printing the necessary information.
         for line in file_object:
-        # This is where I use the local variables to strip the /n in the text file,
-        # split the name and distance, and assign the new total and partial total of lines.
+            # This is where I use the local variables to strip the /n in the text file,
+            # split the name and distance, and assign the new total and partial total of lines.
             partial_total_line += 1
             line = line.rstrip('/n')
             temporary = line.split(',')
@@ -68,13 +67,4 @@ def process_file(fh= input('Please enter the first file to be read.')):
 # Once the program leaves the while loop, the totals need printed.
     printkv('Total # of lines', total_lines)
     printkv('Total distance run', total_distance)
-    process_file(fh)
-
-
-
-
-
-
-
-
-
+    process_file()
