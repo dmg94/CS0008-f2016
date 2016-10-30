@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "C:/Users/Danielle/PycharmProjects/CS0008-f2016/Ch1_Ex3/f2016_cs8_dmg94_a2/f2016_cs8_dmg94_a2.py", line 79, in <module>
+    process_file()
+  File "C:/Users/Danielle/PycharmProjects/CS0008-f2016/Ch1_Ex3/f2016_cs8_dmg94_a2/f2016_cs8_dmg94_a2.py", line 49, in process_file
+    printkv('File to be read', fh)
+  File "C:/Users/Danielle/PycharmProjects/CS0008-f2016/Ch1_Ex3/f2016_cs8_dmg94_a2/f2016_cs8_dmg94_a2.py", line 76, in printkv
+    print(format(key, fs), colon, format(value, fs))
+TypeError: non-empty format string passed to object.__format__
+
+Process finished with exit code 1
+
+
+This is how far I've gotten with the program assignment. I was having a lot of trouble figuring out why the process_file
+function wouldn't work when called and why the interpreter wouldn't have the first input phrase pop up.
+I tried asking some friends I know that know Python and Google/Stackoverflow with a lot of the exceptions and
+logic. It helped me out with some of the issues I had.
