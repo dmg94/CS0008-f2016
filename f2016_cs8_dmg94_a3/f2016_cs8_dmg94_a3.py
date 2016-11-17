@@ -26,20 +26,32 @@
 # Key is the first data type entry, and value is the second (usually a number).
 
 
-def nice_print(key, value):
-    # Here we need a conditional structure to know what data type we have for the format_size
-    if isinstance(value, str) or (key, str):
-        # Strings get 30 characters that are truncated if over the limit.
-        format_size = '.30s'
-        # Floats get 10 characters with 3 decimals spots.
-    elif isinstance(value, float) or (key, float):
-        format_size = '15.4f'
-        # Integers get 10 spaces
-    elif isinstance(value, int) or (key, int):
-        format_size = '10d'
-        # Here is how I tell Python to print the process_file(fh) function's table.
-    print(format(key, format_size), " : ", format(value, format_size))
-    # end nice_print function and if structure
-def reading_file(fo)
+if __name__ == '__main__':
+    def nice_print(key, value):
+        # Here we need a conditional structure to know what data type we have for the format_size
+        if isinstance(value, str) or (key, str):
+            # Strings get 30 characters that are truncated if over the limit.
+            format_size = '.30s'
+            # Floats get 10 characters with 3 decimals spots.
+        elif isinstance(value, float) or (key, float):
+            format_size = '15.4f'
+            # Integers get 10 spaces
+        elif isinstance(value, int) or (key, int):
+            format_size = '10d'
+            # Here is how I tell Python to print the process_file(fh) function's table.
+        print(format(key, format_size), " : ", format(value, format_size))
+        # end nice_print function and if structure
+        # Now I am defining a new function named reading_file
+
+
+def reading_file(fo):
     file = open (fo, 'r')
+    for line in fo:
+        line = line.split(',').rstrip('/n')
+        p_distance = float(line[1])
+        names = str(line[0])
+        p_lines = 0
+        p_lines += 1
+
+
 
