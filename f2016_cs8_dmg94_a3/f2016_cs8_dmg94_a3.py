@@ -42,16 +42,32 @@ if __name__ == '__main__':
         print(format(key, format_size), " : ", format(value, format_size))
         # end nice_print function and if structure
         # Now I am defining a new function named reading_file
+        # This function will process each file in the zip file.
 
 
 def reading_file(fo):
     file = open (fo, 'r')
-    for line in fo:
-        line = line.split(',').rstrip('/n')
-        p_distance = float(line[1])
-        names = str(line[0])
-        p_lines = 0
+    # In the for loop, I am stripping the newline and spliting the names and distances for the computer.
+    p_lines = 0
+    for line in file:
+        lines = line.split(',').rstrip('/n')
+        # Here I am defining the partial lines, distance, and names that are in each file.
+        p_distance = float(lines[1])
+        names = str(lines[0])
         p_lines += 1
+    return [p_lines, p_distance, names]
+# End reading_file function.
+# This next function, create_set, will create the set from the values that the
+# reading_file function returns.
+# It will return the min, max,
+
+def create_set(names,lines):
+    list(names)
+    set(list(names))
+
+
+
+
 
 
 
