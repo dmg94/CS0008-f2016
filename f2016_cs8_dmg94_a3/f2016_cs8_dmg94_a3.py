@@ -23,30 +23,29 @@
 # The total distance run.
 # First I am creating the nice_print function.
 # This function will be how the program prints out the table at the end of the program.
-# Key is the first data type entry, and value is the second (usually a number).
+# Key is the first data type entry, and value is the second (usually a number)
 
-
-if __name__ == '__main__':
-    def nice_print(key, value):
-        # Here we need a conditional structure to know what data type we have for the format_size
-        if isinstance(value, str) or (key, str):
-            # Strings get 30 characters that are truncated if over the limit.
-            format_size = '.30s'
-            # Floats get 10 characters with 3 decimals spots.
-        elif isinstance(value, float) or (key, float):
-            format_size = '15.4f'
-            # Integers get 10 spaces
-        elif isinstance(value, int) or (key, int):
-            format_size = '10d'
-            # Here is how I tell Python to print the process_file(fh) function's table.
-        print(format(key, format_size), " : ", format(value, format_size))
-        # end nice_print function and if structure
-        # Now I am defining a new function named reading_file
-        # This function will process each file in the zip file.
+fo = C:\Users\Danielle\Documents\CS0008-f2016\f2016_cs8_a3.data.zip
+def nice_print(key, value):
+    # Here we need a conditional structure to know what data type we have for the format_size
+    if isinstance(value, str) or (key, str):
+        # Strings get 30 characters that are truncated if over the limit.
+        format_size = '.30s'
+        # Floats get 10 characters with 3 decimals spots.
+    elif isinstance(value, float) or (key, float):
+        format_size = '15.4f'
+        # Integers get 10 spaces
+    elif isinstance(value, int) or (key, int):
+        format_size = '10d'
+        # Here is how I tell Python to print the process_file(fh) function's table.
+    print(format(key, format_size), " : ", format(value, format_size))
+    # end nice_print function and if structure
+    # Now I am defining a new function named reading_file
+    # This function will process each file in the zip file.
 
 
 def reading_file(fo):
-    file = open (fo, 'r')
+    file = open(fo, 'r')
     # In the for loop, I am stripping the newline and spliting the names and distances for the computer.
     p_lines = 0
     for line in file:
@@ -61,9 +60,12 @@ def reading_file(fo):
 # reading_file function returns.
 # It will return the min, max,
 
-def create_set(names,lines):
-    list(names)
-    set(list(names))
+def create_set(names,p_distance):
+    dictionary = dict(names, p_distance)
+
+
+
+
 
 
 
