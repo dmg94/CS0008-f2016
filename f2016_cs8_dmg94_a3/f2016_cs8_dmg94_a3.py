@@ -49,15 +49,24 @@ file = open(master_file, 'r')
 # Creating an empty list
 data = []
 # In the for loop, I am stripping the newline and splitting the names and distances for the computer.
-data = (item.split(',').rstrip('\n') for item in file)
-data.append(file.readlines([1: ]))
+for line in file:
+    line = line.
+    lines = line.
+    data.append(line)
+    data.remove('name, distance')
+# Here I am adding the individual lines to the file
+#  Numbers is another list that only has the distance numbers
+# so they can be added for the total below.
 numbers = float(data[1])
 file.close()
+# Close files
+# I am assigning total_distance as the total sum of the numbers list
 total_distance = sum(numbers)
+# total_lines is the amount of numbers from the files
 total_lines = len(numbers)
-num_files = total_lines / 150
 directory = dict(data)
-
+for key in directory:
+    print(directory.keys)
 
 
 
