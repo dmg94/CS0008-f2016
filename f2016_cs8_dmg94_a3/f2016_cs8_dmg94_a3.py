@@ -25,7 +25,7 @@
 # This function will be how the program prints out the table at the end of the program.
 # Key is the first data type entry, and value is the second (usually a number)
 
-fo = C:\Users\Danielle\Documents\CS0008-f2016\f2016_cs8_a3.data.zip
+
 def nice_print(key, value):
     # Here we need a conditional structure to know what data type we have for the format_size
     if isinstance(value, str) or (key, str):
@@ -42,26 +42,24 @@ def nice_print(key, value):
     # end nice_print function and if structure
     # Now I am defining a new function named reading_file
     # This function will process each file in the zip file.
+# Here I am defining the master_file for the user to give to the program.
+master_file = input('Please give the master file here.')
+# Open the file in read mode
+file = open(master_file, 'r')
+# Creating an empty list
+data = []
+# In the for loop, I am stripping the newline and splitting the names and distances for the computer.
+data = (item.split(',').rstrip('\n') for item in file)
+data.append(file.readlines([1: ]))
+numbers = float(data[1])
+file.close()
+total_distance = sum(numbers)
+total_lines = len(numbers)
+num_files = total_lines / 150
+directory = dict(data)
 
 
-def reading_file(fo):
-    file = open(fo, 'r')
-    # In the for loop, I am stripping the newline and spliting the names and distances for the computer.
-    p_lines = 0
-    for line in file:
-        lines = line.split(',').rstrip('/n')
-        # Here I am defining the partial lines, distance, and names that are in each file.
-        p_distance = float(lines[1])
-        names = str(lines[0])
-        p_lines += 1
-    return [p_lines, p_distance, names]
-# End reading_file function.
-# This next function, create_set, will create the set from the values that the
-# reading_file function returns.
-# It will return the min, max,
 
-def create_set(names,p_distance):
-    dictionary = dict(names, p_distance)
 
 
 
