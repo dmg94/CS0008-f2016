@@ -26,53 +26,56 @@
 # Key is the first data type entry, and value is the second (usually a number)
 
 
-def nice_print(key, value):
+def nice_print(var1, var2):
     # Here we need a conditional structure to know what data type we have for the format_size
-    if isinstance(value, str) or (key, str):
+    if isinstance(var2, str) or (var1, str):
         # Strings get 30 characters that are truncated if over the limit.
         format_size = '.30s'
         # Floats get 10 characters with 3 decimals spots.
-    elif isinstance(value, float) or (key, float):
+    elif isinstance(var2, float) or (var1, float):
         format_size = '15.4f'
         # Integers get 10 spaces
-    elif isinstance(value, int) or (key, int):
+    elif isinstance(var2, int) or (var1, int):
         format_size = '10d'
         # Here is how I tell Python to print the process_file(fh) function's table.
-    print(format(key, format_size), " : ", format(value, format_size))
+    print(format(var1, format_size), " : ", format(var2, format_size))
     # end nice_print function and if structure
     # Now I am defining a new function named reading_file
     # This function will process each file in the zip file.
 # Here I am defining the master_file for the user to give to the program.
+
 master_file = input('Please give the master file here.')
 # Open the file in read mode
-file = open(master_file, 'r')
+files = open(master_file, 'r')
 # Creating an empty list
 data = []
 # In the for loop, I am stripping the newline and splitting the names and distances for the computer.
-for line in file:
+for line in files:
     line = line.rstrip('\n')
     lines = line.split(',')
+    numbers = float(lines)
     data.append(lines)
 # Here I am adding the individual lines to the file
 #  Numbers is another list that only has the distance numbers
 # so they can be added for the total below.
-numbers = float(str(data[0:][1]))
-file.close()
+files.close()
 # Close files
 # I am assigning total_distance as the total sum of the numbers list
 total_distance = sum(numbers)
 # total_lines is the amount of numbers from the files
 total_lines = len(data)
+# Creating a dictionary by converting the data list into one named directory.
 directory = dict(data)
+# Using a for loop to iterate over all the keys in the dictionary.
+max_distance = 0
+name_of_max = 0
+min_distance = 0
+name_of_min = 0
 for key in directory:
-    directory.get(key)
-
-out_file = f2016_cs8_dmg94_a3.data.output.csv
-fo = open(out_file, 'w')
-
-nice_print('The total distance ran by the participants is', total_distance)
-nice_print('The total number of participants')
-nice_print('The total lines read are', total_lines)
-nice_print('The number of files read', )
-nice_print('The max distance ran was',)
-nice_print('The min distance ran was')
+    values = directory[key]
+    if max(values) > max_distance:
+        max_distance = max(values)
+        name_of_max = key
+    elif min(values) in directory:
+        min_distance = min(values)
+        name_of_min = key
