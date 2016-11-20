@@ -52,8 +52,6 @@ files = open(master_file, 'r')
 data = []
 # In the for loop, I am stripping the newline and splitting the names and distances for the computer.
 for line in files:
-    # Converting the strings in the file to floats to sum the numbers up.
-    numbers = float(line)
     # Stripping the \n in each line
     line = line.rstrip('\n')
     # Splitting the name and the distance pair by the comma of each line
@@ -62,6 +60,8 @@ for line in files:
     data.append(lines)
     # I am assigning total_distance as the total sum of the numbers list
     # total_lines is the amount of numbers from the files
+    # Converting the strings in the file to floats to sum the numbers up.
+    numbers = float(line)
     total_distance = sum(numbers)
 
 # Here I am adding the individual lines to the file
@@ -83,8 +83,8 @@ for line in data:
         # The key will equal the value if it's only in the list once.
     else:
         directory[line[0]] = [line[1]]
-    count = sum(len(directory.values()))
 # End if structure and for loop.
+count = sum(len(directory.values()))
 # Updating directory to include to sum of each value for the
 # distance ran by each participant.
 updated_dict = {}
@@ -111,12 +111,13 @@ for key in updated_dict:
 # Ending for loop and if structure
 # Opening up a new file where the names of the participants that
 # appeared more than once will be written to,
-# how many times they appeard
+# how many times they appeared,
 # and what their total distance ran was.
 # Defining the new file first
 output_file = f2016_cs8_dmg94_a3.data.output.csv
 # Opening the file
 opf = open(output_file, 'w')
+opf.writelines()
 
 
 
