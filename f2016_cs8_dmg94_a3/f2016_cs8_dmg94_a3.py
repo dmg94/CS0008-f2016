@@ -58,11 +58,11 @@ for line in files:
     lines = line.split(',')
     # Adding the lines to the data list
     data.append(lines)
+    item = line[1]
+    numbers = float(item)
     # I am assigning total_distance as the total sum of the numbers list
     # total_lines is the amount of numbers from the files
     # Converting the strings in the file to floats to sum the numbers up.
-    numbers = float(line)
-    total_distance = sum(numbers)
 
 # Here I am adding the individual lines to the file
 #  Numbers is another list that only has the distance numbers
