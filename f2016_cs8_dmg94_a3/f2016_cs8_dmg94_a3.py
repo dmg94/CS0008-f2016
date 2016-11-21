@@ -46,6 +46,10 @@ def nice_print(var1, var2):
 # Here I am defining the master_file for the user to give to the program.
 
 master_file = input('Please give the master file here.')
+while master_file != '':
+    master_file.readlines()
+    line = master_file.rstrip('\n')
+
 # Open the file in read mode
 files = open(master_file, 'r')
 # Creating an empty list
@@ -84,7 +88,6 @@ for line in data:
     else:
         directory[line[0]] = [line[1]]
 # End if structure and for loop.
-count = sum(len(directory.values()))
 # Updating directory to include to sum of each value for the
 # distance ran by each participant.
 updated_dict = {}
@@ -92,6 +95,13 @@ updated_dict = {}
 # the updated dictionary
 for key, value in directory():
     updated_dict[key] = sum(value)
+
+
+def count():
+    values1 = updated_dict.values
+    num_times = sum(len(values1))
+
+    return num_times
 
 # Defining variables needed to find the max and min distance and the name.
 max_distance = 0
