@@ -46,12 +46,27 @@ def nice_print(var1, var2):
 # Here I am defining the master_file for the user to give to the program.
 
 master_file = input('Please give the master file here.')
-while master_file != '':
-    master_file.readlines()
-    line = master_file.rstrip('\n')
 
-# Open the file in read mode
-files = open(master_file, 'r')
+
+def file_input():
+    # Defining file_input function. Creating 2 variables that will be the
+    # number of files for the computer to read and store the names in file_names.
+    file_names = ''
+    # Using a while loop to read the master_file
+    while master_file != '':
+        master_file.readlines()
+        # Stripping the \n and using the index to get the length and file names.
+        lin = master_file.rstrip('\n')
+        file_names = lin[0:]
+        # Continues to read lines until the master_file has an empty string.
+        master_file.readlines()
+    # Returning the file_names and num_files for later on in the program.
+    return file_names
+# This variable is the length of file_names so the computer knows
+# how many files there are to read and save.
+num_files = len(file_input())
+# Open the files in read mode
+files = open(file_input(), 'r')
 # Creating an empty list
 data = []
 # In the for loop, I am stripping the newline and splitting the names and distances for the computer.
@@ -88,19 +103,25 @@ for line in data:
     else:
         directory[line[0]] = [line[1]]
 # End if structure and for loop.
+num_ppl = len(directory)
 # Updating directory to include to sum of each value for the
 # distance ran by each participant.
 updated_dict = {}
 # Taking the directory and summing all the values to make
 # the updated dictionary
+total_distance = 0
 for key, value in directory():
     updated_dict[key] = sum(value)
+    total_distance += float(value)
+# End for loop
 
 
 def count():
-    values1 = updated_dict.values
-    num_times = sum(len(values1))
-
+    # This function, count, takes the values in the updated_dict() and
+    # sums the length of each value.
+    for value2 in updated_dict():
+        num_times = sum(len(value2))
+    # Returns the number of times for the people that are in the files more than once.
     return num_times
 
 # Defining variables needed to find the max and min distance and the name.
@@ -130,6 +151,18 @@ opf = open(output_file, 'w')
 opf.writelines()
 
 
-
-
-
+nice_print('Number of files read',num_files)
+nice_print('Total number of participants',num_ppl)
+nice_print('Total lines read', total_lines)
+nice_print('Total distance ran by participants is', total_distance)
+print('')
+nice_print('The maximum distance ran was',max_distance)
+nice_print('Person who ran max distance was', name_of_max)
+print('')
+nice_print('The minimum distance ran was', min_distance)
+nice_print('Person who ran min distance was', name_of_min)
+print('')
+print('Please read this file to see' /
+      'how many times each participants name appears' /
+      "and their total distance that they ran.")
+nice_print('Here is the file to read',output_file)
