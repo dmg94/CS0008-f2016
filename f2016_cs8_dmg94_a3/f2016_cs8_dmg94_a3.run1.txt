@@ -1,0 +1,15 @@
+Here is where I got in my program:
+I wrote out the whole thing, but while debugging I keep running into this issue with converting the string numbers ("34" instead
+of 34 for an int or 34.0 for a float, etc.)
+At first it wasn't working because I learned that you can't use the float function to convert a list to a float.
+Then I thought of the indexing and iterating over the list (with Alex's help) and made a variable x to
+make the index increase by 2 while the for loop is iterating over the file.
+
+C:\Users\Danielle\AppData\Local\Programs\Python\Python35\python.exe C:/Users/Danielle/PycharmProjects/CS0008-f2016/f2016_cs8_dmg94_a3/f2016_cs8_dmg94_a3.py
+Please give the master file here.C:\Users\Danielle\PycharmProjects\CS0008-f2016\f2016_cs8_dmg94_a3\f2016_cs8_a3.data\f2016_cs8_a3.data.1.csv
+Traceback (most recent call last):
+  File "C:/Users/Danielle/PycharmProjects/CS0008-f2016/f2016_cs8_dmg94_a3/f2016_cs8_dmg94_a3.py", line 79, in <module>
+    x = lines[index]
+IndexError: list index out of range
+
+Process finished with exit code 1

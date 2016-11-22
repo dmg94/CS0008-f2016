@@ -27,6 +27,7 @@
 
 
 def nice_print(var1, var2):
+    format_size = ''
     # Here we need a conditional structure to know what data type we have for the format_size
     if isinstance(var2, str) or (var1, str):
         # Strings get 30 characters that are truncated if over the limit.
@@ -45,37 +46,126 @@ def nice_print(var1, var2):
 # Here I am defining the master_file for the user to give to the program.
 
 master_file = input('Please give the master file here.')
-# Open the file in read mode
-files = open(master_file, 'r')
+fh = open(master_file, 'r')
+
+
+def file_input():
+    # Defining file_input function. Creating a variable that will store the names in file_names.
+    file_names = ''
+    # Using a while loop to read the master_file
+    for l in master_file:
+        # Stripping the \n and using the index to get the length and file names.
+        l = master_file.rstrip('\n')
+        file_names = l[0:]
+    # Returning the file_names variable for later use in the program.
+    return file_names
+# This variable is the length of file_names so the computer knows
+# how many files there are to read and save.
+num_files = len(file_input())
+# Open the files in read mode
+files = open(file_input(), 'r')
 # Creating an empty list
 data = []
+total_distance = 0
 # In the for loop, I am stripping the newline and splitting the names and distances for the computer.
 for line in files:
+    # Stripping the \n in each line
     line = line.rstrip('\n')
-    lines = line.split(',')
-    numbers = float(lines)
+    # Splitting the name and the distance pair by the comma of each line
+    lines = line.strip('').split(',')
+    # Adding the lines to the data list
     data.append(lines)
-# Here I am adding the individual lines to the file
-#  Numbers is another list that only has the distance numbers
-# so they can be added for the total below.
+    index = 3
+    x = lines[index]
+    item = float(x)
+    index += 2
+    # Changing to float each numerical item and assigning it to numbers.
+    total_distance += float(item)
+    # I am assigning total_distance as the total sum of the numbers list
+    # total_lines is the amount of numbers from the files
 files.close()
 # Close files
-# I am assigning total_distance as the total sum of the numbers list
-total_distance = sum(numbers)
-# total_lines is the amount of numbers from the files
 total_lines = len(data)
-# Creating a dictionary by converting the data list into one named directory.
-directory = dict(data)
-# Using a for loop to iterate over all the keys in the dictionary.
+# Creating an empty dictionary.
+directory = {}
+# Iterating over the data list to get all of the values
+# for each key.
+for line in data:
+    # Using an if structure to test if the key is already there or not.
+    if line[0] in data:
+        # Adding the next list index for that key into the dictionary
+        # if it already exists
+        directory += directory[line[0]].append[line[1]]
+        # The key will equal the value if it's only in the list once.
+    else:
+        directory += directory[line[0]].append[line[1]]
+# End if structure and for loop.
+num_ppl = len(directory)
+# Updating directory to include to sum of each value for the
+# distance ran by each participant.
+updated_dict = {}
+# Taking the directory and summing all the values to make
+# the updated dictionary
+for key, value in directory():
+    updated_dict[key] = sum(value)
+# End for loop
+
+
+def count():
+    # This function, count, takes the values in the updated_dict() and
+    # sums the length of each value.
+    num_times = ()
+    for value2 in updated_dict:
+        num_times = sum(len(value2))
+    # Returns the number of times for the people that are in the files more than once.
+    return num_times
+
+# Defining variables needed to find the max and min distance and the name.
 max_distance = 0
 name_of_max = 0
 min_distance = 0
 name_of_min = 0
-for key in directory:
-    values = directory[key]
+# Using a for loop to iterate over all the keys in the dictionary.
+for key in updated_dict:
+    values = updated_dict[key]
+    # Using an if structure to find the max distance ran in the experiments.
     if max(values) > max_distance:
         max_distance = max(values)
         name_of_max = key
-    elif min(values) in directory:
+    elif min(values) in updated_dict:
         min_distance = min(values)
         name_of_min = key
+# Ending for loop and if structure
+# Opening up a new file where the names of the participants that
+# appeared more than once will be written to,
+# how many times they appeared,
+# and what their total distance ran was.
+# Defining the new file first
+output_file = f2016_cs8_dmg94_a3.data.output.csv
+# Opening the file
+opf = open('output_file', 'w')
+# Writing the keys of the updated dictionary, the number of times
+# that each name appears
+# and the total distance each person ran.
+opf.writelines(str(updated_dict.keys), ",")
+opf.writelines(count(), ',')
+opf.writelines(updated_dict.values + '\n')
+# Closing file so it writes and saves it.
+opf.close()
+# Here I am printing out all of the data for the user to see at the end.
+nice_print('Number of files read', num_files)
+nice_print('Total number of participants', num_ppl)
+nice_print('Total lines read', total_lines)
+nice_print('Total distance ran by participants is', total_distance)
+print('')
+nice_print('The maximum distance ran was', max_distance)
+nice_print('Person who ran max distance was', name_of_max)
+print('')
+nice_print('The minimum distance ran was', min_distance)
+nice_print('Person who ran min distance was', name_of_min)
+print('')
+print('Please read this file to see /'
+      'how many times each participants name appears /'
+      "and their total distance that they ran.")
+nice_print('Here is the file to read', output_file)
+# End of program!
