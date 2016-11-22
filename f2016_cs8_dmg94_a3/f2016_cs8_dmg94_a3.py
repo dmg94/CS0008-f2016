@@ -119,7 +119,7 @@ for key, value in directory():
 def count():
     # This function, count, takes the values in the updated_dict() and
     # sums the length of each value.
-    num_times = 0
+    num_times = ()
     for value2 in updated_dict:
         num_times = sum(len(value2))
     # Returns the number of times for the people that are in the files more than once.
@@ -149,7 +149,7 @@ for key in updated_dict:
 output_file = f2016_cs8_dmg94_a3.data.output.csv
 # Opening the file
 opf = open(output_file, 'w')
-opf.writelines()
+opf.writelines(updated_dict.keys(), ",", + count() + ',', updated_dict.values + '\n')
 
 
 nice_print('Number of files read', num_files)
