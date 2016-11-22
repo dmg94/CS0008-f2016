@@ -167,3 +167,4 @@ print('Please read this file to see /'
       'how many times each participants name appears /'
       "and their total distance that they ran.")
 nice_print('Here is the file to read', output_file)
+# End of program!
