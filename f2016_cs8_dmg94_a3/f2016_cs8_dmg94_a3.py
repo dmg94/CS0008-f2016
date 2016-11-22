@@ -46,21 +46,18 @@ def nice_print(var1, var2):
 # Here I am defining the master_file for the user to give to the program.
 
 master_file = input('Please give the master file here.')
+fh = open(master_file, 'r')
 
 
 def file_input():
-    # Defining file_input function. Creating 2 variables that will be the
-    # number of files for the computer to read and store the names in file_names.
+    # Defining file_input function. Creating a variable that will store the names in file_names.
     file_names = ''
     # Using a while loop to read the master_file
-    while master_file != '':
-        master_file.readlines()
+    for l in master_file:
         # Stripping the \n and using the index to get the length and file names.
-        lin = master_file.rstrip('\n')
-        file_names = lin[0:]
-        # Continues to read lines until the master_file has an empty string.
-        master_file.readlines()
-    # Returning the file_names and num_files for later on in the program.
+        l = master_file.rstrip('\n')
+        file_names = l[0:]
+    # Returning the file_names variable for later use in the program.
     return file_names
 # This variable is the length of file_names so the computer knows
 # how many files there are to read and save.
@@ -69,23 +66,20 @@ num_files = len(file_input())
 files = open(file_input(), 'r')
 # Creating an empty list
 data = []
+total_distance = 0
 # In the for loop, I am stripping the newline and splitting the names and distances for the computer.
 for line in files:
     # Stripping the \n in each line
     line = line.rstrip('\n')
     # Splitting the name and the distance pair by the comma of each line
-    lines = line.split(',')
+    lines = line.strip('').split(',')
     # Adding the lines to the data list
     data.append(lines)
     item = line[1]
-    numbers = float(item)
+    # Changing to float each numerical item and assigning it to numbers.
+    total_distance += float(item)
     # I am assigning total_distance as the total sum of the numbers list
     # total_lines is the amount of numbers from the files
-    # Converting the strings in the file to floats to sum the numbers up.
-
-# Here I am adding the individual lines to the file
-#  Numbers is another list that only has the distance numbers
-# so they can be added for the total below.
 files.close()
 # Close files
 total_lines = len(data)
@@ -98,10 +92,10 @@ for line in data:
     if line[0] in data:
         # Adding the next list index for that key into the dictionary
         # if it already exists
-        directory = directory[line[0]].append[line[1]]
+        directory += directory[line[0]].append[line[1]]
         # The key will equal the value if it's only in the list once.
     else:
-        directory[line[0]] = [line[1]]
+        directory += directory[line[0]].append[line[1]]
 # End if structure and for loop.
 num_ppl = len(directory)
 # Updating directory to include to sum of each value for the
@@ -109,10 +103,8 @@ num_ppl = len(directory)
 updated_dict = {}
 # Taking the directory and summing all the values to make
 # the updated dictionary
-total_distance = 0
 for key, value in directory():
     updated_dict[key] = sum(value)
-    total_distance += float(value)
 # End for loop
 
 
@@ -148,10 +140,16 @@ for key in updated_dict:
 # Defining the new file first
 output_file = f2016_cs8_dmg94_a3.data.output.csv
 # Opening the file
-opf = open(output_file, 'w')
-opf.writelines(updated_dict.keys(), ",", + count() + ',', updated_dict.values + '\n')
-
-
+opf = open('output_file', 'w')
+# Writing the keys of the updated dictionary, the number of times
+# that each name appears
+# and the total distance each person ran.
+opf.writelines(str(updated_dict.keys), ",")
+opf.writelines(count(), ',')
+opf.writelines(updated_dict.values + '\n')
+# Closing file so it writes and saves it.
+opf.close()
+# Here I am printing out all of the data for the user to see at the end.
 nice_print('Number of files read', num_files)
 nice_print('Total number of participants', num_ppl)
 nice_print('Total lines read', total_lines)
