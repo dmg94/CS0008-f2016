@@ -75,7 +75,10 @@ for line in files:
     lines = line.strip('').split(',')
     # Adding the lines to the data list
     data.append(lines)
-    item = line[1]
+    index = 3
+    x = lines[index]
+    item = float(x)
+    index += 2
     # Changing to float each numerical item and assigning it to numbers.
     total_distance += float(item)
     # I am assigning total_distance as the total sum of the numbers list
