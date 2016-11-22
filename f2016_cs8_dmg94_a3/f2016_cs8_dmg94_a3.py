@@ -119,7 +119,8 @@ for key, value in directory():
 def count():
     # This function, count, takes the values in the updated_dict() and
     # sums the length of each value.
-    for value2 in updated_dict():
+    num_times = 0
+    for value2 in updated_dict:
         num_times = sum(len(value2))
     # Returns the number of times for the people that are in the files more than once.
     return num_times
@@ -151,18 +152,18 @@ opf = open(output_file, 'w')
 opf.writelines()
 
 
-nice_print('Number of files read',num_files)
-nice_print('Total number of participants',num_ppl)
+nice_print('Number of files read', num_files)
+nice_print('Total number of participants', num_ppl)
 nice_print('Total lines read', total_lines)
 nice_print('Total distance ran by participants is', total_distance)
 print('')
-nice_print('The maximum distance ran was',max_distance)
+nice_print('The maximum distance ran was', max_distance)
 nice_print('Person who ran max distance was', name_of_max)
 print('')
 nice_print('The minimum distance ran was', min_distance)
 nice_print('Person who ran min distance was', name_of_min)
 print('')
-print('Please read this file to see' /
-      'how many times each participants name appears' /
+print('Please read this file to see /'
+      'how many times each participants name appears /'
       "and their total distance that they ran.")
-nice_print('Here is the file to read',output_file)
+nice_print('Here is the file to read', output_file)
