@@ -22,4 +22,13 @@
 # with commas separating each value
 # Ex) Max,5,3,456.7890
 
-# First I am going to create the Participants class. This will store each participant's
+# First I am going to create the Participants class. This will have in memory each participant's name,
+# distance that they ran, and the number of runs as the data attributes.
+# The methods for the class are as follows:
+# init for initializing each participants' properties.
+#  get_name which gives the participant's name
+#  get_distance which returns the distance that the participant currently ran
+# add_distance which adds a single distance (float) for that participant's distance attribute
+#  add_Distances which takes in a list and adds it to an accumulator (assuming this is the total distance ran at the
+# end for all of the participants together?
+# str which prints out that participant's name, distance, and the number of times they ran in a fancy format.
