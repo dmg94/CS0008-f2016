@@ -83,7 +83,12 @@ class Participants:
     # Str method is up next
 
     def __str__(self):
-        # This is where the format structure is built when print(participant object) is made
+        # This is where print(participant object) is used
+        return "Name : " + format(self.name, '>20.s') + "Distance run : " + format(self.distance, '9.4f') + \
+            "Runs : " + format(self.runs, '4d')
+
+
+
 
 
 
