@@ -38,17 +38,54 @@
 
 class Participants:
     # Init method. Uses self, n for name, and d for distance
-    def __init__(self, n, d):
+    def __init__(self, n, d=0):
+        # Self.name assigns the name (n) of the participant to the object.
         self.name = n
+        # Self.distance assigns the distance (d) for the starting distance ran by the participant.
         self.distance = d
         # This condition tests for the distance amount to set the starting number of runs for that person.
         if d == 0:
             self.runs = 0
         else:
             self.runs = 1
-    #
+    # End init
+    # Defining the next method, get_name
 
     def get_name(self):
+        # This returns the name of the participant when used
         return self.name
+    # End get_name
+    # Now defining the next method, get_distance
+
+    def get_distance(self):
+        # this returns the distance ran (at that moment) when used
+        return self.distance
+    # End get_distance
+    # Next method, add_distance
+
+    def add_distance(self, d):
+        # Self.runs is now a counter for the number of runs when add_distance is called.
+        self.runs += 1
+        # Self.distance is now an accumulator for adding and reassigning the value of the person's distance ran.
+        self.distance += d
+    # End add_distance
+    # Add_Distances is up next
+
+    def add_distances(self, ld):
+        # ld is a list of distances ran by the participants?
+        for d in ld:
+            # This loops over the distances and adds each distance to self.distance
+            self.distance += d
+            # As well as adds one for each distance counted.
+            self.runs += 1
+    # Why does add_distance exist if add_distances seems more usable in this assignment?
+    # End add_distances method
+    # Str method is up next
+
+    def __str__(self):
+        # This is where the format structure is built when print(participant object) is made
+
+
+
 
 
