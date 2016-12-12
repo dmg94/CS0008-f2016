@@ -32,3 +32,23 @@
 #  add_Distances which takes in a list and adds it to an accumulator (assuming this is the total distance ran at the
 # end for all of the participants together?
 # str which prints out that participant's name, distance, and the number of times they ran in a fancy format.
+
+# First I need the class header for the beginning of the program
+
+
+class Participants:
+    # Init method. Uses self, n for name, and d for distance
+    def __init__(self, n, d):
+        self.name = n
+        self.distance = d
+        # This condition tests for the distance amount to set the starting number of runs for that person.
+        if d == 0:
+            self.runs = 0
+        else:
+            self.runs = 1
+    #
+
+    def get_name(self):
+        return self.name
+
+
