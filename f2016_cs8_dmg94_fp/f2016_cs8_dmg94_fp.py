@@ -82,9 +82,9 @@ class Participants:
     # End add_distances method
     # Str method is up next
 
-        def __str__(self):
-            # This is where print(participant object) is used
-            return "Name : " + format(self.name, '>20.s') + "Distance run : " + format(self.distance, '9.4f') + \
+    def __str__(self):
+        # This is where print(participant object) is used
+        return "Name : " + format(self.name, '>20.s') + "Distance run : " + format(self.distance, '9.4f') + \
                 "Runs : " + format(self.runs, '4d')
         # End of str method
         # End of class Participants now
@@ -108,7 +108,7 @@ def process_file(file):
         key, val = line
         # Strips the ending whitespace in each key name.
         key = key.rstrip()
-        # Tests if key is in the dictionary and adds the value
+        # Tests if key is in the dictionary and adds the value in the appropriate place.
         if key in dictionary:
             dictionary[key].append(float(val))
         else:
@@ -117,8 +117,9 @@ def process_file(file):
         num_lines += 1
     # Closes the file at the end.
     file.close()
-
-    return d, num_lines
+    # Returns the dictionary and number of lines read by the file
+    return dictionary, num_lines
+# Next is to make the
 
 
 
