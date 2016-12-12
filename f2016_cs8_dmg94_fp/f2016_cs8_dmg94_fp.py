@@ -82,10 +82,45 @@ class Participants:
     # End add_distances method
     # Str method is up next
 
-    def __str__(self):
-        # This is where print(participant object) is used
-        return "Name : " + format(self.name, '>20.s') + "Distance run : " + format(self.distance, '9.4f') + \
-            "Runs : " + format(self.runs, '4d')
+        def __str__(self):
+            # This is where print(participant object) is used
+            return "Name : " + format(self.name, '>20.s') + "Distance run : " + format(self.distance, '9.4f') + \
+                "Runs : " + format(self.runs, '4d')
+        # End of str method
+        # End of class Participants now
+# Next in the program I am creating the process_file function which will be used to read each file and add in the \
+# contents of the dictionary's names and values, which will be used as the individual participants later on.
+# It takes in a file and an empty dictionary
+
+
+def process_file(file):
+    fo = open(file, 'r')
+    num_lines = 0
+    dictionary = {}
+
+    for line in fo:
+        # This tests for the header line so it'll skip the line if it is found (first line in each file)
+        if 'distance' in line:
+            continue
+        # This reassigns line to the modified version with the newline stripped and the commas split for each line
+        line = line.rstrip('\n').split(",")
+        # Assigning key and val to each value in the list of line
+        key, val = line
+        # Strips the ending whitespace in each key name.
+        key = key.rstrip()
+        # Tests if key is in the dictionary and adds the value
+        if key in dictionary:
+            dictionary[key].append(float(val))
+        else:
+            dictionary[key] = [float(val)]
+        # Counts the number of lines in the file
+        num_lines += 1
+    # Closes the file at the end.
+    file.close()
+
+    return d, num_lines
+
+
 
 
 
