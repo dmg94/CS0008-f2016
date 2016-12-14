@@ -88,38 +88,41 @@ class Participants:
                 "Runs : " + format(self.runs, '4d')
         # End of str method
         # End of class Participants now
-# Next in the program I am creating the process_file function which will be used to read each file and add in the \
-# contents of the dictionary's names and values, which will be used as the individual participants later on.
-# It takes in a file and an empty dictionary
+# Next in the program I am creating the process_file function which will be used to read each file (made into a list)
+#  and add in the \ contents of the dictionary's names and values, which will be used as the individual participants
+# later on. It will create a dictionary in output and number of lines.
 
 
-def process_file(file):
-    fo = open(file, 'r')
+def process_file(fl):
+    # fl is a files list of all the files from the master file
     num_lines = 0
     dictionary = {}
 
-    for line in fo:
-        # This tests for the header line so it'll skip the line if it is found (first line in each file)
-        if 'distance' in line:
-            continue
-        # This reassigns line to the modified version with the newline stripped and the commas split for each line
-        line = line.rstrip('\n').split(",")
-        # Assigning key and val to each value in the list of line
-        key, val = line
-        # Strips the ending whitespace in each key name.
-        key = key.rstrip()
-        # Tests if key is in the dictionary and adds the value in the appropriate place.
-        if key in dictionary:
-            dictionary[key].append(float(val))
-        else:
-            dictionary[key] = [float(val)]
-        # Counts the number of lines in the file
-        num_lines += 1
-    # Closes the file at the end.
-    file.close()
+    for fil in fl:
+        fo = open(fil, 'r')
+        for line in fil:
+            # This tests for the header line so it'll skip the line if it is found (first line in each file)
+            if 'distance' in line:
+                continue
+            # This reassigns line to the modified version with the newline stripped and the commas split for each line
+            line = line.rstrip('\n').split(",")
+            # Assigning key and val to each value in the list of line
+            key, val = line
+            # Strips the ending whitespace in each key name.
+            key = key.rstrip()
+            # Tests if key is in the dictionary and adds the value in the appropriate place.
+            if key in dictionary:
+                dictionary[key].append(float(val))
+            else:
+                dictionary[key] = [float(val)]
+            # Counts the number of lines in the file
+            num_lines += 1
+        # Closes the file at the end.
+        fil.close()
     # Returns the dictionary and number of lines read by the file
     return dictionary, num_lines
-# Next is to make the
+# Next is to get the master file from the user. Going to use the function master_input which will take in
+# the file handle and then read it and return a list of the files for process_file to read
 
 
 
