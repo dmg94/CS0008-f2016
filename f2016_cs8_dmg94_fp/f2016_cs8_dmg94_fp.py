@@ -122,8 +122,20 @@ def process_file(fl):
     # Returns the dictionary and number of lines read by the file
     return dictionary, num_lines
 # Next is to get the master file from the user. Going to use the function master_input which will take in
-# the file handle and then read it and return a list of the files for process_file to read
+# the file handle and then read it and return a list of the files for process_file to read. mf will be the name for the
+# master file taken in input when called.
 
+
+def master_input(mf):
+    # Creating empty list
+    file_list = []
+    for line in mf:
+        line.rstrip('\n')
+        # Adding each line to the file_list to be used in process_file().
+        file_list.append(line)
+
+    return file_list
+# End master_input function
 
 
 
