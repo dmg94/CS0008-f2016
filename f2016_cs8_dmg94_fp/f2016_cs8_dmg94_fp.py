@@ -8,8 +8,8 @@
 # This program takes a master file (with multiple file names inside) and loads them into memory.
 # Each individual file contains the names of participants and the distances that each of them ran in an experiment.
 # After reading the master file, the program will display the following information to the user:
-# Number of files read
-# Total number of lines read
+# Number of files read (master_input fct.)
+# Total number of lines (process_file fct.)
 # Total distance run (by the whole population)
 # Total distance run (by each participant name)
 # The maximum distance run in the experiment and by whom
@@ -99,8 +99,8 @@ def process_file(fl):
     dictionary = {}
 
     for fil in fl:
-        fo = open(fil, 'r')
-        for line in fil:
+        file = open(fil, 'r')
+        for line in file:
             # This tests for the header line so it'll skip the line if it is found (first line in each file)
             if 'distance' in line:
                 continue
@@ -118,7 +118,7 @@ def process_file(fl):
             # Counts the number of lines in the file
             num_lines += 1
         # Closes the file at the end.
-        fil.close()
+        file.close()
     # Returns the dictionary and number of lines read by the file
     return dictionary, num_lines
 # Next is to get the master file from the user. Going to use the function master_input which will take in
@@ -136,6 +136,17 @@ def master_input(mf):
 
     return file_list
 # End master_input function
+# Now for the main program. First asking for input to give the master file.
+master_file = input('Please give the master data file to be read.')
+# Assigning fo to open the master file for the master_input function
+fo = open(master_file, 'r')
+# Assigning list_files to the output of the master_input function for process_file to use.
+list_files = master_input(fo)
+# num_files is the length of list_files
+num_files = len(list_files)
+# Assigning the dictionary and number of lines from the output of process_file function
+n_dict, n_lines = process_file(list_files)
+
 
 
 
