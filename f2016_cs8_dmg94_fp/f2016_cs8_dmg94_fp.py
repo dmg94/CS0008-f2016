@@ -146,12 +146,17 @@ list_files = master_input(fo)
 num_files = len(list_files)
 # Assigning the dictionary and number of lines from the output of process_file function
 n_dict, n_lines = process_file(list_files)
+# Assigning num_participants to the length of n_dict that was made in process_file function
+num_participants = len(n_dict)
 # Assigning total_distance to
 
 # With the dictionary that was just made, now I am going to use a for loop to iterate over n_dict and make
 # a list of the class instances to get the number of times each participant ran, the total distance they ran,
 # and the minimum and maximum distance (and person for each).
 # First making an empty list 'participants'.
+# I'm going to try this method from StackOverflow to get the instances of the class from the n_dict
+# http://stackoverflow.com/questions/1639174/creating-class-instance-properties-from-a-dictionary-in-python?
+# noredirect=1&lq=1
 participants = n_dict.items.Participants(key,value)
 min_name = ''
 min_distance = 0
@@ -183,7 +188,7 @@ f_size_i = '5d'
 print("Number of files read by input     :" + format(num_files, f_size_i))
 print("Total number of lines read        :" + format(n_lines, f_size_i))
 print('')
-print("Total distance run                :" +format(t_distance,f_size_f) )
+print("Total distance run                :" + format(t_distance,f_size_f))
 print('')
 print("Maximum distance run              :" + format(max_distance, f_size_f))
 print("Max distance participant name is  :" + format(max_name, f_size_s))
