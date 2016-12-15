@@ -107,14 +107,14 @@ def process_file(fl):
             # This reassigns line to the modified version with the newline stripped and the commas split for each line
             line = line.rstrip('\n').split(",")
             # Assigning key and val to each value in the list of line
-            key, val = line
+            ke, val = line
             # Strips the ending whitespace in each key name.
-            key = key.rstrip()
+            k = ke.rstrip()
             # Tests if key is in the dictionary and adds the value in the appropriate place.
-            if key in dictionary:
-                dictionary[key].append(float(val))
+            if k in dictionary:
+                dictionary[k].append(float(val))
             else:
-                dictionary[key] = [float(val)]
+                dictionary[k] = [float(val)]
             # Counts the number of lines in the file
             num_lines += 1
         # Closes the file at the end.
@@ -137,7 +137,7 @@ def master_input(mf):
     return file_list
 # End master_input function
 # Now for the main program. First asking for input to give the master file.
-master_file = input('Please give the master data file to be read.')
+master_file = input('Please give the master data file here to be read.')
 # Assigning fo to open the master file for the master_input function
 fo = open(master_file, 'r')
 # Assigning list_files to the output of the master_input function for process_file to use.
@@ -146,10 +146,24 @@ list_files = master_input(fo)
 num_files = len(list_files)
 # Assigning the dictionary and number of lines from the output of process_file function
 n_dict, n_lines = process_file(list_files)
+# Assigning total_distance to
 
-
-
-
+# With the dictionary that was just made, now I am going to use a for loop to iterate over n_dict and make
+# a list of the class instances to get the number of times each participant ran, the total distance they ran,
+# and the minimum and maximum distance (and person for each).
+# First making an empty list 'participants'.
+participants = n_dict.items.Participants(key,value)
+min_name = ''
+min_distance = 0
+max_name = ''
+max_distance = 0
+# Number of people that have multiple records in the files.
+num_ppl_that_ran_multiple = 0
+participants = n_dict.items.Participants(key,value)
+for key, value in n_dict.items():
+    list_of_values = []
+    list_of_values.append(value)
+    participants.addDistances(list_of_values)
 
 
 
