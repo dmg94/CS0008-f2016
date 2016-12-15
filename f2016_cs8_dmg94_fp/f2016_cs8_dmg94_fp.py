@@ -164,9 +164,35 @@ for key, value in n_dict.items():
     list_of_values = []
     list_of_values.append(value)
     participants.addDistances(list_of_values)
+# Creating output file which will have the records of all of the participants that ran multiple times in the experiment
+# with their name, number of times that they ran, and their total distance.
+o_file = 'f2016_cs8_dmg94_fp.data.output.csv'
+foh = open(o_file, 'w')
+foh.write('Name, number of times ran, distance\n')
+for name in n_dict.items():
+    foh.write(name + ','.join([self.name, str(self.runs), str(self.distance) + '\n']))
+foh.close()
 
-
-
-
-
-
+# Providing output to user now. Format string variables listed below to use in printing
+# String format size
+f_size_s = '20s'
+# Float format size
+f_size_f = '12.5f'
+# Integer format size
+f_size_i = '5d'
+print("Number of files read by input     :" + format(num_files, f_size_i))
+print("Total number of lines read        :" + format(n_lines, f_size_i))
+print('')
+print("Total distance run                :" +format(t_distance,f_size_f) )
+print('')
+print("Maximum distance run              :" + format(max_distance, f_size_f))
+print("Max distance participant name is  :" + format(max_name, f_size_s))
+print('')
+print("Minimum distance run              :" + format(min_distance, f_size_f))
+print("Min distance participant name is  :" + format(min_name, f_size_s))
+print('')
+print("Total number of participants      :" + format(num_participants, f_size_i))
+print("Number of participants "
+      "with multiple records             :" + format(num_ppl_that_ran_multiple, f_size_f))
+print("Here is the output file to read "
+      "data on the participants that ran multiple times:" + format(o_file, f_size_s))
