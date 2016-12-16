@@ -104,6 +104,7 @@ def process_file(fl):
     dictionary = {}
     tot_distance = 0
     for fil in fl:
+        fil.rstrip('\n')
         file = open(fil, 'r')
         for line in file:
             # This tests for the header line so it'll skip the line if it is found (first line in each file)
