@@ -168,13 +168,12 @@ max_distance = 0
 appearances = {}
 # This for loops takes the blank dictionary, participants, and iterates through n_dict made from process_file fct.
 # to instantiate each key and value in the Participants class.
+# Okay, so the keys are the same in the interpreter and I have to make them different for this to work.
 for key, value in iter(n_dict.items()):
     # Tests if the key is already in the new dictionary or not
-    if not key[0] in participants.keys():
-        # Adds it in as a class instance, pretty sure?
-        participants[key[0]] = Participants(key[0])
+    part = Participants
     # For every value, it uses the add_distance to add the distances to the new dictionary.
-    participants = participants[key[0]].add_distance(value[0])
+    participants = part[key[0]].add_distance(value[0])
 # Now going to find the min and max values with the names by iterating over the new participants dictionary,
 # since it will have the values added already.
 # Name and distance are the variables here.
