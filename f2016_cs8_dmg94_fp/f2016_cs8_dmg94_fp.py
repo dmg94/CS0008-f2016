@@ -164,8 +164,8 @@ min_name = ''
 min_distance = 0
 max_name = ''
 max_distance = 0
-# Number of people that have multiple records in the files.
-num_ppl_that_ran_multiple = 0
+# This will be the list of the people that ran more than once stored as a dictionary
+appearances = {}
 # This for loops takes the blank dictionary, participants, and iterates through n_dict made from process_file fct.
 # to instantiate each key and value in the Participants class.
 for key, value in n_dict.items():
@@ -178,15 +178,31 @@ for key, value in n_dict.items():
 # Now going to find the min and max values with the names by iterating over the new participants dictionary,
 # since it will have the values added already.
 # Name and distance are the variables here.
-for na, dist in participants.items():
-
+for na, obj in participants.items():
+    distance = obj.get_distance()
+    # Using if structure to determine the min distance and name
+    if min_distance > distance:
+        min_distance = distance
+        min_name = na
+        # End first if
+    if max_distance < distance:
+        max_distance = distance
+        max_name = na
+        # End second if
+    participant_appearances = obj.get_runs
+    if participant_appearances not in appearances.keys():
+        appearances[participant_appearances] = []
+    appearances[participant_appearances].append(na)
+    # Ending for loop
+# Number of people that have multiple records in the files.
+num_ppl_that_ran_multiple = len([1 for item in participants.values() if item.get_runs() > 1])
 # Creating output file which will have the records of all of the participants that ran multiple times in the experiment
 # with their name, number of times that they ran, and their total distance.
 o_file = 'f2016_cs8_dmg94_fp.data.output.csv'
 foh = open(o_file, 'w')
 foh.write('Name, number of times ran, distance\n')
-for name in n_dict.items():
-    foh.write(name + ','.join([self.name, str(self.runs), str(self.distance) + '\n']))
+for name, objects in participants.items():
+    foh.write(objects.to_csv_file + '\n')
 foh.close()
 
 # Providing output to user now. Format string variables listed below to use in printing
