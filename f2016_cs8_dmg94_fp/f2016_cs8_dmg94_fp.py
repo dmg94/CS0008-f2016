@@ -104,7 +104,6 @@ def process_file(fl):
     dictionary = {}
     tot_distance = 0
     for fil in fl:
-        fil.rstrip('\n')
         file = open(fil, 'r')
         for line in file:
             # This tests for the header line so it'll skip the line if it is found (first line in each file)
@@ -138,7 +137,7 @@ def master_input(mf):
     # Creating empty list
     file_list = []
     for line in mf:
-        line.rstrip('\n')
+        line = line.rstrip('\n')
         # Adding each line to the file_list to be used in process_file().
         file_list.append(line)
 

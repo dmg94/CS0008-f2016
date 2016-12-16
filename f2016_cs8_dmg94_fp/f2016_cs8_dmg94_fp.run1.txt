@@ -7,6 +7,6 @@ Traceback (most recent call last):
     n_dict, n_lines, t_distance = process_file(list_files)
   File "C:/Users/Danielle/PycharmProjects/CS0008-f2016/f2016_cs8_dmg94_fp/f2016_cs8_dmg94_fp.py", line 107, in process_file
     file = open(fil, 'r')
-OSError: [Errno 22] Invalid argument: 'f2016_cs8_fp.data.1.csv\n'
+FileNotFoundError: [Errno 2] No such file or directory: 'f2016_cs8_fp.data.1.csv'
 
 Process finished with exit code 1
