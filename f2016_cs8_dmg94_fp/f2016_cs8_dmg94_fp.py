@@ -159,18 +159,27 @@ num_participants = len(n_dict)
 # a list of the class instances to get the number of times each participant ran, the total distance they ran,
 # and the minimum and maximum distance (and person for each).
 # First making an empty list 'participants'.
-participants = n_dict.items.Participants(key,value)
+participants = {}
 min_name = ''
 min_distance = 0
 max_name = ''
 max_distance = 0
 # Number of people that have multiple records in the files.
 num_ppl_that_ran_multiple = 0
-participants = n_dict.items.Participants(key,value)
+# This for loops takes the blank dictionary, participants, and iterates through n_dict made from process_file fct.
+# to instantiate each key and value in the Participants class.
 for key, value in n_dict.items():
-    list_of_values = []
-    list_of_values.append(value)
-    participants.addDistances(list_of_values)
+    # Tests if the key is already in the new dictionary or not
+    if not key['name'] in participants.keys():
+        # Adds it in as a class instance, pretty sure?
+        participants[key['name']] = Participants(key['name'])
+    # For every value, it uses the add_distance to add the distances to the new dictionary.
+    participants[key['name']].add_distance[value['distance']]
+# Now going to find the min and max values with the names by iterating over the new participants dictionary,
+# since it will have the values added already.
+# Name and distance are the variables here.
+for na, dist in participants.items():
+
 # Creating output file which will have the records of all of the participants that ran multiple times in the experiment
 # with their name, number of times that they ran, and their total distance.
 o_file = 'f2016_cs8_dmg94_fp.data.output.csv'
