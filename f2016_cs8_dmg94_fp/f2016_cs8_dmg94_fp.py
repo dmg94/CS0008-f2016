@@ -87,6 +87,11 @@ class Participants:
         return "Name : " + format(self.name, '>20.s') + "Distance run : " + format(self.distance, '9.4f') + \
                 "Runs : " + format(self.runs, '4d')
         # End of str method
+    # this will help in writing to the file of all the participants in output.csv
+
+    def to_csv_file(self):
+        return ','.join([self.name, str(self.runs), str(self.distance)])
+        # End to_csv_file
         # End of class Participants now
 # Next in the program I am creating the process_file function which will be used to read each file (made into a list)
 #  and add in the \ contents of the dictionary's names and values, which will be used as the individual participants
@@ -97,7 +102,7 @@ def process_file(fl):
     # fl is a files list of all the files from the master file
     num_lines = 0
     dictionary = {}
-
+    tot_distance = 0
     for fil in fl:
         file = open(fil, 'r')
         for line in file:
@@ -117,10 +122,12 @@ def process_file(fl):
                 dictionary[k] = [float(val)]
             # Counts the number of lines in the file
             num_lines += 1
+            # Total distance by adding the values of each line
+            tot_distance += float(val)
         # Closes the file at the end.
         file.close()
     # Returns the dictionary and number of lines read by the file
-    return dictionary, num_lines
+    return dictionary, num_lines, tot_distance
 # Next is to get the master file from the user. Going to use the function master_input which will take in
 # the file handle and then read it and return a list of the files for process_file to read. mf will be the name for the
 # master file taken in input when called.
@@ -144,19 +151,14 @@ fo = open(master_file, 'r')
 list_files = master_input(fo)
 # num_files is the length of list_files
 num_files = len(list_files)
-# Assigning the dictionary and number of lines from the output of process_file function
-n_dict, n_lines = process_file(list_files)
+# Assigning the dictionary and number of lines and total distance from the output of process_file function
+n_dict, n_lines, t_distance = process_file(list_files)
 # Assigning num_participants to the length of n_dict that was made in process_file function
 num_participants = len(n_dict)
-# Assigning total_distance to
-
 # With the dictionary that was just made, now I am going to use a for loop to iterate over n_dict and make
 # a list of the class instances to get the number of times each participant ran, the total distance they ran,
 # and the minimum and maximum distance (and person for each).
 # First making an empty list 'participants'.
-# I'm going to try this method from StackOverflow to get the instances of the class from the n_dict
-# http://stackoverflow.com/questions/1639174/creating-class-instance-properties-from-a-dictionary-in-python?
-# noredirect=1&lq=1
 participants = n_dict.items.Participants(key,value)
 min_name = ''
 min_distance = 0
