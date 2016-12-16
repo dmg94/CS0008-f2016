@@ -3,10 +3,8 @@ Here is a run of the final project program:
 C:\Users\Danielle\AppData\Local\Programs\Python\Python35\python.exe C:/Users/Danielle/PycharmProjects/CS0008-f2016/f2016_cs8_dmg94_fp/f2016_cs8_dmg94_fp.py
 Please give the master data file here to be read.C:\Users\Danielle\PycharmProjects\CS0008-f2016\f2016_cs8_dmg94_fp\f2016_cs8_fp.data\f2016_cs8_fp.data(1)\f2016_cs8_fp.data.txt
 Traceback (most recent call last):
-  File "C:/Users/Danielle/PycharmProjects/CS0008-f2016/f2016_cs8_dmg94_fp/f2016_cs8_dmg94_fp.py", line 155, in <module>
-    n_dict, n_lines, t_distance = process_file(list_files)
-  File "C:/Users/Danielle/PycharmProjects/CS0008-f2016/f2016_cs8_dmg94_fp/f2016_cs8_dmg94_fp.py", line 107, in process_file
-    file = open(fil, 'r')
-FileNotFoundError: [Errno 2] No such file or directory: 'f2016_cs8_fp.data.1.csv'
+  File "C:/Users/Danielle/PycharmProjects/CS0008-f2016/f2016_cs8_dmg94_fp/f2016_cs8_dmg94_fp.py", line 173, in <module>
+    if not key[0] in participants.keys():
+AttributeError: 'NoneType' object has no attribute 'keys'
 
 Process finished with exit code 1
