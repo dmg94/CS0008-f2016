@@ -216,7 +216,7 @@ f_size_i = '5d'
 print("Number of files read by input     :" + format(num_files, f_size_i))
 print("Total number of lines read        :" + format(n_lines, f_size_i))
 print('')
-print("Total distance run                :" + format(t_distance,f_size_f))
+print("Total distance run                :" + format(t_distance, f_size_f))
 print('')
 print("Maximum distance run              :" + format(max_distance, f_size_f))
 print("Max distance participant name is  :" + format(max_name, f_size_s))
