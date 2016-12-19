@@ -63,6 +63,10 @@ class Participants:
     # End get_distance
     # Next method, add_distance
 
+    # MN: you forgot the method get_runs
+    def get_runs(self):
+        return self.runs
+
     def add_distance(self, d):
         # Self.runs is now a counter for the number of runs when add_distance is called.
         self.runs += 1
@@ -170,10 +174,21 @@ appearances = {}
 # to instantiate each key and value in the Participants class.
 # Okay, so the keys are the same in the interpreter and I have to make them different for this to work.
 for key, value in iter(n_dict.items()):
+    # MN: part will be an instance of the class participant, but you did not pass in name that is required
     # Tests if the key is already in the new dictionary or not
-    part = Participants
+    #part = Participants
+    # MN: key is a single value, while value is a list of distances according your program 
     # For every value, it uses the add_distance to add the distances to the new dictionary.
-    participants = part[key[0]].add_distance(value[0])
+    #participants = part[key[0]].add_distance(value[0])
+
+    # MN: instantiate correctly the object
+    part = Participants(key)
+    # add all the distances
+    part.add_distances(value)
+    # append your new object to the list of participants
+    participants[key] = part
+
+
 # Now going to find the min and max values with the names by iterating over the new participants dictionary,
 # since it will have the values added already.
 # Name and distance are the variables here.
@@ -201,7 +216,9 @@ o_file = 'f2016_cs8_dmg94_fp.data.output.csv'
 foh = open(o_file, 'w')
 foh.write('Name, number of times ran, distance\n')
 for name, objects in participants.items():
-    foh.write(objects.to_csv_file + '\n')
+    # to_csv_file is a method, therefore you need to call it as a function
+    #foh.write(objects.to_csv_file + '\n')
+    foh.write(objects.to_csv_file() + '\n')
 foh.close()
 
 # Providing output to user now. Format string variables listed below to use in printing
